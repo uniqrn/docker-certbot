@@ -1,7 +1,9 @@
-FROM nginx:1.13
+FROM certbot/certbot
 LABEL maintainer "unicorn research Ltd"
 
-RUN apt-get update \
-  && apt-get install -y git certbot cron
+RUN apk update \
+  && apk add --no-cache git openssh
 
 WORKDIR /root
+ENTRYPOINT [ "/usr/sbin/crond" ]
+CMD [ "-f" ]
