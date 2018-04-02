@@ -1,4 +1,4 @@
-FROM certbot/certbot
+FROM certbot/dns-google
 LABEL maintainer "unicorn research Ltd"
 
 RUN apk update \
